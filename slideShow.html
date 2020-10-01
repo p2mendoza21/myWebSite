@@ -1,0 +1,53 @@
+<html>
+<head>
+<script language = "JavaScript">
+
+var number = 0;
+var picList = [ "images/slide1a.jpg", "images/slide2a.jpg", "images/slide3a.jpg", "images/slide4a.jpg", "images/slide5a.jpg" ];
+     var clipList= ["sounds/hermioneGranger.mp3", "sounds/harryPotter.mp3", "sounds/ron.mp3", "sounds/dracoMalfoy.mp3", "sounds/123.mp3" ] ;
+    
+
+
+function startShow()
+{
+	var picFrame= document.getElementById("picFrame").src= picList [number] ;
+     var clip= document.getElementById("myAudio").src= clipList [number] ;
+     var clip= document.getElementById("myAudio").play (); 
+    
+    
+    
+    
+    
+    number = number + 1; 
+      if( number == 5) 
+    {
+        number = 0;
+    }
+        
+}
+
+
+   
+</script>
+
+</head>
+<body  background="images/pback.gif" link="orange" vlink= "yellow">
+      
+     <audio id="myAudio"> </audio>
+<center> 
+<h1> JavaScript Tester </h1>
+    <center> Click here to <a href="index.html"> return to my home page. </a> </center>
+
+<img id= "picFrame"src= "images/slide0.jpg"/> 
+    
+     
+<br/>
+<br/>
+
+<input type="button" value="Click Me" onClick="startShow()">
+
+</center>
+</body>
+</html>
+
+
