@@ -1,0 +1,74 @@
+<html>
+<head>
+<script language= "JavaScript">
+    
+//global var
+var answers = ["Yes","No","Maybe","Very doubtful","Depends on who wins the election","Of course","Never","The future is cloudy","Perhaps","Without a doubt"]; 
+
+function random ()
+    {
+        var rand= -1; //local variable
+        var userQ= document.getElementById       ("question");
+        var myAnswer= document.getElementById ("answer");
+        
+        //Math.random return a random decimal between 0 (inclusive) and 1 (exclusive)
+        //To generate a random number, multiply Math.random() times the number of options that we want--> 0 and 1 less than the number of options. 
+        
+        rand= Math.random()*answers.length; //0-10
+        rand= Math.floor (rand); //returns the nearest integer that is LESS than the parameter
+        
+        //alert(userQ.value.length);
+        
+        if(userQ.value.length == 0) //nothing is in qt
+        {
+            myAnswer.value= "Please type a question first."; 
+        }
+        else
+        {
+            myAnswer.value= answers [rand];
+            if (rand==9)
+            {
+                document.getElementById ("player").play(); 
+            }
+        }
+    }
+    
+function reset ()
+    {
+        //delete the contents of the answer textbox.
+        document.getElementById("answer").value= "";
+    }
+    
+  
+    </script>
+    </head>
+    
+    <body background="images/magicback.gif" link="orange" vlink= "yellow">
+    <center>
+        Welcome! Simply type in a question and click the box to recieve your fortune! Ask wisely. 
+        <center> Click here to <a href="index.html"> return to my home page. </a> </center>
+        <h1> Magic 8-Ball </h1>
+        <img src= "images/fortune.jpg"/><br/><br/>
+        <input id= "question" type= "text" size= "80" onfocusin= "reset()" /><br/><br/><br/>
+        <input type= "button" value= "Click here" onClick= "random()" /><br/><br/> 
+        <input id= "answer" type= "text" size= "80" readonly= true /><br/>
+        
+        <audio src= "sounds/fairy.mp3" id= "player"> </audio>
+        
+        </center>
+    </body>
+</html>
+               
+               
+               
+               
+
+    
+    
+    
+    
+    
+    
+    
+    
+        
