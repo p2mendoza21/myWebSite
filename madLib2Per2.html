@@ -1,0 +1,84 @@
+<html>
+<head>
+<script language="JavaScript">
+
+var partsOfSpeech = ["adjective", "adjective", "type of pie", "verb", "room of a house", "a person", "verb (past tense)", "body part", "something you can eat","object", "object"];
+   
+var answers = ["word1","word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "word10", "word 11", ""];
+   
+var story = ["It was a ", ", cold December day. Annie woke up to the ", " smell of ", " pie baking. Annie ran downstairs to see if she could help ", " the rest of the pies. Upon arriving in the ", ", Annie's mom told her to bring the piece of pie to ", ", so Annie "," a piece of pie to them. When Annie got there, she couldn't believe her ", "! They were already eating a whole ", ". In suprise, Annie dropped the plate onto the ", " and ran back into the room. Annie's mom gave her a ", " to clean up the mess. It was not a good morning for Annie." ];
+   
+var count = 0;
+
+function prompt()
+{
+
+      document.getElementById ("userEnter").style.visibility= "visible";
+   
+     document.getElementById ("story").style.visibility= "hidden";
+   
+    document.getElementById ("response").value= partsOfSpeech [count];
+
+}
+
+
+function getWords()
+{
+	var wordBox= document.getElementById("response");
+    answers [count] = wordBox.value;
+   
+    count ++;//increment count
+
+    if (count < partsOfSpeech.length)
+    {
+       prompt();
+    }
+    else//all elements have been added to display the story
+    {
+        count= 0;
+        document.getElementById ("story").innerHTML= displayStory();
+	}	
+}
+
+function displayStory()
+{
+var answer = "";
+var i;
+
+
+
+for ( i = 0; i< answers.length; i++)
+{
+answer= answer + story[i];
+    answer= answer + answers[i];
+}
+
+    if ( i <story.length)
+        answer= answer + story [story.length];
+
+ document.getElementById ("userEnter"). style.visibility= "hidden";
+   
+     document.getElementById ("story"). style.visibility= "visible";
+
+    return answer;
+}
+
+
+</script>
+</head>
+<body background= "images/magicback.gif" link="orange" vlink= "yellow">
+<center>
+     <center> Click here to <a href="index.html"> return to my home page. </a> </center>
+<h1>My MadLib!</h1>
+<input id="daButton" type="button" value="start" onClick="prompt()"/>
+</center>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
+<input type = "text" id="response" value="" onfocusout="getWords()"/>
+</div>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+
+<div>
+
+</body>
+</html>
