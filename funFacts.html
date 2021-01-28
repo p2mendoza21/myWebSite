@@ -1,0 +1,89 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Create a list of actors
+2. Create a list of fun facts about those actors
+3. Link the two lists together
+4. Create a function that calls certain elements 
+5. Test the function
+6. Display results
+7.
+8 
+
+*/
+
+
+var group = ["-- Choose an Actor --", "Emma Watson", "Rupert Grint", "Daniel Radcliffe", "Tom Felton", "Robbie Coltrane", "Alan Rickman", "Bonnie Wright", "Maggie Smith"];
+
+var facts = ["-- No Actor Selected --", "Graduated from Brown University", "Was born in Harlow, United Kingdom", "He has been in at least 35 movies", "Originally auditoned to play Harry Potter", "He is now 70 years old", "His first career was in graphic design", "Before Harry Potter, Bonnie Wright had never acted before", "She has won an Emmy, a Tony, and an Academy Award"];
+
+function loadData()// fills in the drop down for the select object
+{
+    var sum = 0;
+	for(var i = 0; i<group.length; i++)
+    {
+        var daList = document.getElementById("prez");
+  		var option = document.createElement("option");
+  		option.text = group[i];
+  		daList.add(option);
+   }
+}
+
+// This function identifies which element from the drop down has been selected. It calls the 
+// getIndex function to acquire what the index of the selected item. Then it displays the 
+// corresponding element in the facts list. (This is diplayed in the textbox on the web page.)
+function start()
+{
+	var names= document.getElementById("prez"); 
+    var daIndex= getIndex(names.value); 
+   // alert (daIndex);// element that was selected
+    if(daIndex > -1)
+    {
+    document.getElementById("funFact").value= facts[daIndex]; 
+    }
+    else// an invalid selection was chosen.
+    {
+        alert("Invalid selection"); 
+    }   
+}
+// This function searches the group array for the element passed as a parameter
+// and returns the index number for that element in the array.
+function getIndex(d)
+{
+var answer= -1;//invalid index for an array
+    
+    for(var i=0;i<group.length;i++)// the condition is that the iterator will cycle through until the length of the group list is met. 
+    {
+        if(group[i] == d)//tests if the element at i equals the parameter
+        {
+           answer= i; 
+        }
+    }
+    return answer;
+}
+
+
+
+</script>
+</head>
+<body onload="loadData()" background="images/hogwartsback4.jpg"> 
+<center>
+<h1>Harry Potter Actors Fun Facts</h1>
+ <center> Click here to <a href="index.html"> return to my home page. </a> </center>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="prez"></select>	</td>
+		<td>	<input id="funFact" type="text" size="40"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
