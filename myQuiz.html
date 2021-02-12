@@ -1,0 +1,110 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Create a questions list.
+2. Create an answers list. 
+3. Create a display question function that will display the elements of the question array in the question box. Ensure that once the function reaches the end of the list, it repeats. 
+4. Create an update score function that will check if the users answer is correct or false and increases the score if it is true and keeps it the same if it is false. 
+5. Create a check answer function that checks if the users answer corresponds to the answers array and alerts true if it does and false if it does not. 
+6. Test the functions to make sure they work!
+7. Add a fun background!
+8. Try out your finished quiz!
+
+*/
+
+
+var questions= [" Who is the first person Harry meets at Platform 9 ¾ in the first book? (first and last name)", "What is the second Harry Potter book called?", "What device do Harry and his friends use to save Sirius Black in The Prisoner of Azkaban?", "What is the wizard tournament in the fourth book called?", "Where do Harry and his friends break into in the fifth book?", "Who is “the Half-Blood Prince”? (first and last name)", "Which adult helps Harry and his friends sneak back into Hogwarts in the final book? (first and last name)", "Who is Harry Potter’s first kiss? (first and last name)", "How many Hogwarts Houses are there?","What item definitively kills Sirius Black?"]; 
+
+var answers= ["molly weasley", "chamber of secrets", "time-turner", "the triwizard tournament", "the ministry of magic", "severus snape", "aberforth dumbledore", "cho chang", "four", "the veil"]; 
+
+
+var index = -1;
+
+var score = 0
+
+
+// Create code in displayQuestion that will display the contents of the questions array, one 
+// element at a time. After the last element is displayed, the program should display the first
+// element again.
+function displayQuestion()
+{
+    index++; 
+    
+    if(index==10)
+    {
+        index=0; 
+    }
+    
+    document.getElementById("question").value=     questions[index];
+    
+    //alert(questions[index]); 
+}
+
+
+// This function will first acquire the user's answer (from the textbox with the ID "answer". Then this function will pass that to the checkAnswer function (note: that there is a parameter.) The checkAnswer will return a true or a false. If that function returns true, then the score variable will increase by 1, and an alert should pop up saying "Correct" or something positive. If the checkAnswer function comes back false, then score doesn't increase but an alert should announce "incorect." or something similar. 
+function updateScore()
+{
+    var userAns= document.getElementById("answer").value
+    var isCorrect=checkAnswer(answer.value);
+    
+   if (isCorrect==true)
+       {
+           score++;
+           alert("Correct! Your score is: "+score);
+       }
+    else 
+    {
+        alert("incorrect")
+    }
+    
+    if(index==questions.length-1)
+    {
+        alert("End of quiz! Great Job! Your score is: "+score);
+    }
+}
+
+// This function takes a parameter which will be the users answer. If what the user has submitted the correct answer, this method should return true. Otherwise it should return false. 
+function checkAnswer(ans)
+{
+    ans=ans.toLowerCase(); 
+    if(ans==answers[index])
+        {  
+    return true; 
+        }
+    else
+        {
+        return false;
+        }
+}
+
+
+
+</script>
+</head>
+<body vlink= "orange" link="orange" background="images/h1.jpg"> > 
+<center>
+   <font color= "yellow">
+<h1>My Quiz</h1>
+    <font color= "yellow">
+Click here to <a href="index.html"> return to my home page.</a> <br/>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<input id="question" type="text" size="70" readonly = true/>	</td>
+	</tr>
+	<tr height = "12"><td></td>
+	</tr>
+	<tr>
+		<td>	<input id="answer" type="text" size="70" onfocusout="updateScore()"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="Next Question" onclick="displayQuestion()"/>
+</center>
+
+
+</body>
+</html>
