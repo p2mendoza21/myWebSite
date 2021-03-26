@@ -1,0 +1,54 @@
+<html>
+<head>
+<script language = "JavaScript">
+
+var number = 0;
+var picList = [ "images/GCNP.jpeg", "images/ZNP.jpg", "images/YNP.jpg", "images/YENP.jpg", "images/RMNP.jpg", 
+"images/ANP.jpg" ];
+var funFacts= ["Grand Canyon National Park: ", "Zion National Park:", "Yosemite National Park:", "Yellowstone National Park:", "Rocky Mountains National Park:", "Arches National Park:" ] ;
+var soundsList= 
+    
+
+
+function beginShow()
+{
+	var picFrame= document.getElementById("picFrame").src= picList [number] ;
+    var text= document.getElementById("funFact").value= funFacts [number] ;
+    var audio= document.getElementById("mySounds").src= soundsList [number] ;
+     var audio= document.getElementById("mySounds").play (); 
+  number = number + 1; 
+  
+      if( number == 5) 
+    {
+        number = 0;
+    }
+}
+
+
+
+   
+</script>
+
+</head>
+<body  background="images/pback.gif" link="orange" vlink= "yellow">
+    <audio id="mySounds"> </audio>
+      
+    
+<center> 
+<h1> National Parks</h1>
+    <center> Click here to <a href="index.html"> return to my home page. </a> </center>
+
+<img id= "picFrame"src= "images/npp.jpg"/> 
+    
+     
+<br/>
+<br/>
+    <td>	<input id="funFact" type="text" size="40"/> </td>
+
+<input type="button" value="Click Me" onClick="beginShow()">
+
+</center>
+</body>
+</html>
+
+
