@@ -2,36 +2,37 @@
 <head>
 <script language = "JavaScript">
 
-var number = 0;
-var index = -1;
+
+var index = 0;
 var score= 0;
 
 
 var picList = [ "images/GCNP.jpeg", "images/ZNP.jpg", "images/YNP.jpg", "images/YENP.jpg", "images/RMNP.jpg", 
 "images/ANP.jpg" ];
-var questions= ["What National Park is this?", "What National Park is this?","What National Park is this?", "What National Park is this?", "What National Park is this?", "What National Park is this?" ] ;
+
 var answers= ["Grand Canyon National Park", "Zion National Park", "Yosemite National Park", "Yellowstone National Park", "Rocky Mountains National Park", "Arches National Park"]; 
 //var soundsList= ()
     
 
 function beginShow()
 {
-	 document.getElementById("picFrame").src= picList [number] ;
-     document.getElementById("ask").value= questions [number] ;
+	 var userAns= document.getElementById("answer").value= () 
+    document.getElementById("picFrame").src= picList [index] ;
+     document.getElementById("ask").value= "What National Park is this?";
     //document.getElementById("mySounds").src= soundsList [number] ;
     //document.getElementById("mySounds").play (); 
-  number = number + 1; 
+  index = index + 1; 
   
-      if( number == 5) 
+      if( index == answers.length) 
     {
-        number = 0;
+        index = 0;
     }    
 }
 
 function updateScore()
 {
     var userAns= document.getElementById("answer").value
-    var isCorrect=checkAnswer(answer.value);
+    var isCorrect=checkAnswer(userAns);
     
    if (isCorrect==true)
        {
