@@ -16,18 +16,17 @@ var answers= ["Grand Canyon National Park", "Zion National Park", "Yosemite Nati
 
 function beginShow()
 {
+       
+    if( index == answers.length) 
+    {
+        index = 0;
+    }    
+
     var userAns= document.getElementById("answer").value= "" 
     document.getElementById("picFrame").src= picList [index] ;
      document.getElementById("ask").value= "What National Park is this?";
     //document.getElementById("mySounds").src= soundsList [number] ;
     //document.getElementById("mySounds").play (); 
-   
-  
-      if( index == answers.length) 
-    {
-        index = 0;
-    }    
-
 }
 
 function updateScore()
@@ -46,11 +45,12 @@ function updateScore()
         alert("incorrect")
     }
     
-    if(index==questions.length-1)
+    if(index==answers.length-1)
     {
         alert("End of quiz! Great Job! Your score is: "+score);
-        index = index + 1;
+        
     }
+    index = index + 1;
 }
     
     function checkAnswer(ans)
